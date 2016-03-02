@@ -4,7 +4,19 @@
     <title>Twitter Utils Login</title>
 </head>
 <body>
-    <h1>Please Login</h1>
-    <p>build by tddapps</p>
+    <h1>Please Login to Twitter Utils</h1>
+    <a id="btnLogin" href="#">Login</a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            console.log("ready");
+
+            var loginApiUrl = "https://twitterutils.herokuapp.com/";
+            var url = loginApiUrl + "?callback=";
+
+            $("#btnLogin").attr("href", url);
+        });
+    </script>
 </body>
 </html>

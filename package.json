@@ -1,0 +1,26 @@
+{
+  "name": "logingui",
+  "version": "1.0.0",
+  "description": "twitter utils login gui ",
+  "main": "index.html",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twitterutils/logingui.git"
+  },
+  "keywords": [
+    "twitter"
+  ],
+  "author": "@camilin87",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twitterutils/logingui/issues"
+  },
+  "homepage": "https://github.com/twitterutils/logingui#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
