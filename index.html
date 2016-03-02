@@ -12,8 +12,8 @@
         $(document).ready(function(){
             console.log("ready");
 
-            var loginApiUrl = "https://twitterutils.herokuapp.com/";
-            var url = loginApiUrl + "?callback=";
+            var loginApiUrl = "https://twitterutils.herokuapp.com/api/v1/login";
+            var url = loginApiUrl + "?callback=" + $(location).attr('href') + "login-result.html";
 
             $("#btnLogin").attr("href", url);
         });
