@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Twitter Utils Login</title>
+    <title>Twitter Utils</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-    <div id="divLogin" style="display: none;">
-        <h1>Please Login to Twitter Utils</h1>
-        <a id="btnLogin" href="#">Login</a>
-    </div>
-    <div id="divResultOk" style="display: none;" class="bg-success">
-        <h1>login successful</h1>
-        <p id="txtUserDetails"></p>
-    </div>
-    <div id="divResultFailed" style="display: none;" class="bg-danger">
-        <h1>login failed</h1>
-        <p id="txtErrorDetails"></p>
+    <div class="container">
+        <div class="page-header">
+            <h1>Twitter Utils</h1>
+        </div>
+
+        <div id="divLogin" style="display: none;">
+            <p class="lead">
+                Signup to be able to automate your Twitter worklfow.
+            </p>
+            <h2>
+                <a id="btnLogin" href="#">Signup</a>
+            </h2>
+        </div>
+        <div id="divResultOk" style="display: none;" class="bg-success">
+            <h2>login successful</h2>
+            <p id="txtUserDetails"></p>
+        </div>
+        <div id="divResultFailed" style="display: none;" class="bg-danger">
+            <h2>login failed</h2>
+            <p id="txtErrorDetails"></p>
+        </div>
+
+        <footer class="footer">
+          <div class="container">
+            <p class="text-muted">Twitter Utils build by TddApps</p>
+          </div>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             function setupLogin(){
-                var baseUrl = "https://twitterutils.herokuapp.com";
+                var baseUrl = "http://localhost:8080";
                 var loginApiUrl = baseUrl + "/api/v1/login";
                 var url = loginApiUrl + "?callback=" + $(location).attr('href');
 
