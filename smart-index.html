@@ -29,7 +29,34 @@
                 $("#btnLogin").attr("href", url);
                 $("#divLogin").show();
             }
-            setupLogin();
+            function getQueryStringParams(sParam){
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+
+                for (var i = 0; i < sURLVariables.length; i++){
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam){
+                        return sParameterName[1];
+                    }
+                }
+            }
+
+            var userId = getQueryStringParams("user_id") || null;
+            var error = getQueryStringParams("error") || null;
+
+            if (!error && !userId){
+                setupLogin();
+                return;
+            }
+
+            if (error){
+                $("#txtErrorDetails").text(error);
+                $("#divResultFailed").show();
+                return;
+            }
+
+            $("#txtUserDetails").text(userId);
+            $("#divResultOk").show();
         });
     </script>
 </body>
