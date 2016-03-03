@@ -21,12 +21,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            var baseUrl = "https://twitterutils.herokuapp.com";
-            var docName = "smart-index.html"
-            var loginApiUrl = baseUrl + "/api/v1/login";
-            var url = loginApiUrl + "?callback=" + $(location).attr('href') + docName;
+            function setupLogin(){
+                var baseUrl = "https://twitterutils.herokuapp.com";
+                var loginApiUrl = baseUrl + "/api/v1/login";
+                var url = loginApiUrl + "?callback=" + $(location).attr('href');
 
-            $("#btnLogin").attr("href", url);
+                $("#btnLogin").attr("href", url);
+                $("#divLogin").show();
+            }
+            setupLogin();
         });
     </script>
 </body>
