@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Utils Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div id="divLogin" style="display: none;">
+        <h1>Please Login to Twitter Utils</h1>
+        <a id="btnLogin" href="#">Login</a>
+    </div>
+    <div id="divResultOk" style="display: none;" class="bg-success">
+        <h1>login successful</h1>
+        <p id="txtUserDetails"></p>
+    </div>
+    <div id="divResultFailed" style="display: none;" class="bg-danger">
+        <h1>login failed</h1>
+        <p id="txtErrorDetails"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var baseUrl = "https://twitterutils.herokuapp.com";
+            var docName = "smart-index.html"
+            var loginApiUrl = baseUrl + "/api/v1/login";
+            var url = loginApiUrl + "?callback=" + $(location).attr('href') + docName;
+
+            $("#btnLogin").attr("href", url);
+        });
+    </script>
+</body>
+</html>
