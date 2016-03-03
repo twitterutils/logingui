@@ -4,11 +4,11 @@
     <title>Twitter Utils Login</title>
 </head>
 <body>
-    <div id="divResultOk">
+    <div id="divResultOk" style="display: none;">
         <h1>login successful</h1>
         <p id="txtUserDetails"></p>
     </div>
-    <div id="divResultFailed">
+    <div id="divResultFailed" style="display: none;">
         <h1>login failed</h1>
         <p id="txtErrorDetails"></p>
     </div>
@@ -38,12 +38,12 @@
 
             if (error){
                 $("#txtErrorDetails").text(error);
-                $("#divResultOk").hide();
+                $("#divResultFailed").show();
                 return;
             }
 
             $("#txtUserDetails").text(userId);
-            $("#divResultFailed").hide();
+            $("#divResultOk").show();
         });
     </script>
 </body>
