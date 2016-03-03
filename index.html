@@ -49,8 +49,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            function setupLogin(){
+            function setupLogin(useDevUrl){
                 var baseUrl = "https://twitterutils.herokuapp.com";
+                if (useDevUrl){
+                    baseUrl = "http://localhost:8080";
+                }
+
                 var loginApiUrl = baseUrl + "/api/v1/login";
                 var url = loginApiUrl + "?callback=" + $(location).attr('href');
 
@@ -69,11 +73,12 @@
                 }
             }
 
+            var isDev = getQueryStringParams("dev") || null;
             var userId = getQueryStringParams("user_id") || null;
             var error = getQueryStringParams("error") || null;
 
             if (!error && !userId){
-                setupLogin();
+                setupLogin(isDev === "true");
                 return;
             }
 
