@@ -11,21 +11,27 @@
         }
     }
 
+    function readUrlParams(){
+        return {
+            isDev: getQueryStringParams("dev") || null,
+            userId: getQueryStringParams("user_id") || null,
+            error: getQueryStringParams("error") || null
+        };
+    }
+
     var LoginButton = React.createClass({
         getInitialState: function() {
-            var isDev = getQueryStringParams("dev") || null;
-            var userId = getQueryStringParams("user_id") || null;
-            var error = getQueryStringParams("error") || null;
+            var urlParams = readUrlParams();
 
             var baseUrl = "https://twu-loginapi.herokuapp.com";
-            if (isDev === "true"){
+            if (urlParams.isDev === "true"){
                 baseUrl = "http://localhost:8080";
             }
             var loginApiUrl = baseUrl + "/api/v1/login";
 
             return {
                 url: loginApiUrl + "?callback=" + window.location.href,
-                visible: !error && !userId
+                visible: !urlParams.error && !urlParams.userId
             }
         },
         render: function() {
