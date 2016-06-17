@@ -32,7 +32,7 @@
             return {
                 url: loginApiUrl + "?callback=" + window.location.href,
                 visible: !urlParams.error && !urlParams.userId
-            }
+            };
         },
         render: function() {
             if (!this.state.visible){
@@ -49,8 +49,37 @@
         }
     });
 
+    var LoginSuccess = React.createClass({
+        getInitialState: function(){
+            var urlParams = readUrlParams();
+
+            return {
+                userId: urlParams.userId,
+                visible: urlParams.userId
+            };
+        },
+        render: function(){
+            if (!this.state.visible){
+                return(null);
+            }
+
+            return (
+                <div className="jumbotron success-container">
+                    <h2>Login Successful</h2>
+                    <p class="lead">
+                        Twitter User Id: <span>{this.state.userId}</span>
+                    </p>
+                </div>
+            );
+        }
+    });
+
     ReactDOM.render(
         <LoginButton/>,
         document.getElementById("loginContainer")
+    );
+    ReactDOM.render(
+        <LoginSuccess/>,
+        document.getElementById("loginResultContainer")
     );
 })();
