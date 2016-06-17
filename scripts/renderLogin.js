@@ -1,4 +1,4 @@
-var LoginButton = React.createClass({displayName: "LoginButton",
+var LoginButton = React.createClass({
     render: () => {
         return (
             <a className="btn btn-lg btn-success" role="button">
