@@ -1,7 +1,12 @@
 var LoginButton = React.createClass({
-    render: () => {
+    getInitialState: function() {
+        return {
+            url: "http://google.com"
+        }
+    },
+    render: function() {
         return (
-            <a className="btn btn-lg btn-success" role="button">
+            <a className="btn btn-lg btn-success" role="button" href={this.state.url}>
                 Signup Today
             </a>
         );
