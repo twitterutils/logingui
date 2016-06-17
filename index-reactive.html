@@ -21,12 +21,21 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="page-header">
             <h1><a id="linkTitle" href="/">Twitter Utils</a></h1>
         </div>
 
-        <div id="content"></div>
+        <div id="divLogin" class="jumbotron">
+            <h1>Automate Twitter</h1>
+            <p class="lead">
+                Signup to automate your Twitter workflow.
+            </p>
+
+            <div id="loginContainer">
+            </div>
+        </div>
 
         <footer class="footer">
           <div class="container">
@@ -36,7 +45,20 @@
     </div>
 
     <script type="text/babel">
-        
+        var LoginButton = React.createClass({displayName: "LoginButton",
+            render: () => {
+                return (
+                    React.createElement("a", {className: "loginButton"},
+                        "Signup Today"
+                    )
+                );
+            }
+        });
+
+        ReactDOM.render(
+            React.createElement(LoginButton, null),
+            document.getElementById("loginContainer")
+        );
     </script>
 </body>
 </html>
