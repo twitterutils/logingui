@@ -1,7 +1,29 @@
 var LoginButton = React.createClass({
     getInitialState: function() {
+        function getQueryStringParams(sParam){
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+
+            for (var i = 0; i < sURLVariables.length; i++){
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam){
+                    return sParameterName[1];
+                }
+            }
+        }
+        var isDev = getQueryStringParams("dev") || null;
+        var useDevUrl = isDev === "true";
+
+        var baseUrl = "https://twu-loginapi.herokuapp.com";
+        if (useDevUrl){
+            baseUrl = "http://localhost:8080";
+        }
+
+        var loginApiUrl = baseUrl + "/api/v1/login";
+        var url = loginApiUrl + "?callback=" + window.location.href;
+
         return {
-            url: "http://google.com"
+            url: url
         }
     },
     render: function() {
