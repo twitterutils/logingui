@@ -12,18 +12,16 @@ var LoginButton = React.createClass({
             }
         }
         var isDev = getQueryStringParams("dev") || null;
-        var useDevUrl = isDev === "true";
 
         var baseUrl = "https://twu-loginapi.herokuapp.com";
-        if (useDevUrl){
+        if (isDev === "true"){
             baseUrl = "http://localhost:8080";
         }
 
         var loginApiUrl = baseUrl + "/api/v1/login";
-        var url = loginApiUrl + "?callback=" + window.location.href;
 
         return {
-            url: url
+            url: loginApiUrl + "?callback=" + window.location.href
         }
     },
     render: function() {
