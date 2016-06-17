@@ -74,12 +74,37 @@
         }
     });
 
+    var LoginError = React.createClass({
+        getInitialState: function(){
+            var urlParams = readUrlParams();
+            return {
+                error: urlParams.error,
+                visible: urlParams.error
+            };
+        },
+        render: function(){
+            if (!this.state.visible){
+                return (null);
+            }
+
+            return (
+                <div className="jumbotron error-container">
+                    <h2 class="bg-danger">Login Failed</h2>
+                    <p class="lead">{this.state.error}</p>
+                </div>
+            );
+        }
+    });
+
     ReactDOM.render(
         <LoginButton/>,
         document.getElementById("loginContainer")
     );
     ReactDOM.render(
-        <LoginSuccess/>,
+        <div>
+            <LoginSuccess/>
+            <LoginError/>
+        </div>,
         document.getElementById("loginResultContainer")
     );
 })();
