@@ -12,7 +12,7 @@
     }
 
     var LoginButton = React.createClass({
-        getInitialState: function() {            
+        getInitialState: function() {
             var isDev = getQueryStringParams("dev") || null;
 
             var baseUrl = "https://twu-loginapi.herokuapp.com";
@@ -23,12 +23,19 @@
             var loginApiUrl = baseUrl + "/api/v1/login";
 
             return {
-                url: loginApiUrl + "?callback=" + window.location.href
+                url: loginApiUrl + "?callback=" + window.location.href,
+                visible: true
             }
         },
         render: function() {
-            return (
-                <a className="btn btn-lg btn-success" role="button" href={this.state.url}>
+            if (!this.state.visible){
+                return(null);
+            }
+
+            return(
+                <a className="btn btn-lg btn-success"
+                    role="button"
+                    href={this.state.url}>
                     Signup Today
                 </a>
             );
