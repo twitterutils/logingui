@@ -9,6 +9,6 @@ var LoginButton = React.createClass({displayName: "LoginButton",
 });
 
 ReactDOM.render(
-    React.createElement(LoginButton, null),
+    <LoginButton/>,
     document.getElementById("loginContainer")
 );
