@@ -51,18 +51,11 @@
 
     var LoginSuccess = React.createClass({
         getInitialState: function(){
-            var urlParams = readUrlParams();
-
             return {
-                userId: urlParams.userId,
-                visible: urlParams.userId
+                userId: readUrlParams().userId
             };
         },
         render: function(){
-            if (!this.state.visible){
-                return(null);
-            }
-
             return (
                 <div className="jumbotron success-container">
                     <h2>Login Successful</h2>
@@ -76,17 +69,11 @@
 
     var LoginError = React.createClass({
         getInitialState: function(){
-            var urlParams = readUrlParams();
             return {
-                error: urlParams.error,
-                visible: urlParams.error
+                error: readUrlParams().error
             };
         },
         render: function(){
-            if (!this.state.visible){
-                return (null);
-            }
-
             return (
                 <div className="jumbotron error-container">
                     <h2 class="bg-danger">Login Failed</h2>
@@ -96,15 +83,42 @@
         }
     });
 
+    var LoginResult = React.createClass({
+        getInitialState: function(){
+            var urlParams = readUrlParams();
+
+            return {
+                shouldDisplayError: urlParams.error,
+                shouldDisplaySuccess: urlParams.userId
+            }
+        },
+        render: function(){
+            if (this.state.shouldDisplayError){
+                return (
+                    <div>
+                        <LoginError />
+                    </div>
+                );
+            }
+
+            if (this.state.shouldDisplaySuccess){
+                return (
+                    <div>
+                        <LoginSuccess />
+                    </div>
+                );
+            }
+
+            return (null);
+        }
+    })
+
     ReactDOM.render(
-        <LoginButton/>,
+        <LoginButton />,
         document.getElementById("loginContainer")
     );
     ReactDOM.render(
-        <div>
-            <LoginSuccess/>
-            <LoginError/>
-        </div>,
+        <LoginResult />,
         document.getElementById("loginResultContainer")
     );
 })();
