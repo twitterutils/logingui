@@ -23,7 +23,7 @@
         getInitialState: function() {
             var urlParams = readUrlParams();
 
-            var baseUrl = "https://twu-loginapi.herokuapp.com";
+            var baseUrl = "https://twu-api.herokuapp.com";
             if (urlParams.isDev === "true"){
                 baseUrl = "http://localhost:8080";
             }
