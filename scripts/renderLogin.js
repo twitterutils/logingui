@@ -27,7 +27,7 @@
             if (urlParams.isDev === "true"){
                 baseUrl = "http://localhost:8080";
             }
-            var loginApiUrl = baseUrl + "/api/v1/login";
+            var loginApiUrl = baseUrl + "/login/api/v1/login";
 
             return {
                 url: loginApiUrl + "?callback=" + window.location.href,

@@ -55,7 +55,7 @@
                     baseUrl = "http://localhost:8080";
                 }
 
-                var loginApiUrl = baseUrl + "/api/v1/login";
+                var loginApiUrl = baseUrl + "/login/api/v1/login";
                 var url = loginApiUrl + "?callback=" + $(location).attr('href');
 
                 $("#btnLogin").attr("href", url);
