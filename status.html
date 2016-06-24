@@ -8,17 +8,22 @@
     <div class="container">
         <h1>Api Status</h1>
 
-        <h2>
-          <span class="label label-danger">Login</span>
-        </h2>
-
-        <h2>
-          <span class="label label-success">Graph</span>
-        </h2>
-
-        <h2>
-          <span class="label label-success">Notifications</span>
-        </h2>
+        <h2><span id="lbl-api-login" class="label label-default">Login</span></h2>
+        <h2><span id="lbl-api-graph" class="label label-default">Graph</span></h2>
+        <h2><span id="lbl-api-notifications" class="label label-default">Notifications</span></h2>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#lbl-api-login").removeClass("label-default");
+            $("#lbl-api-graph").removeClass("label-default");
+            $("#lbl-api-notifications").removeClass("label-default");
+
+            $("#lbl-api-login").addClass("label-success");
+            $("#lbl-api-graph").addClass("label-success");
+            $("#lbl-api-notifications").addClass("label-success");
+        })
+    </script>
 </body>
 </html>
