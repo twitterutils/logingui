@@ -16,11 +16,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#lbl-api-login").removeClass("label-default");
+            function getApiStatus(fullUrl, callback){
+                $.getJSON(fullUrl)
+                    .done(function(json){
+                        console.log(json);
+                        callback(json.status === "ok" ? true : false);
+                    })
+                    .fail(function(err){
+                        console.log(err);
+                        callback(false);
+                    });
+            }
+
+            getApiStatus("https://twu-api.herokuapp.com/login/api/v1/status", function(status){
+                $("#lbl-api-login").removeClass("label-default");
+
+                if (status){
+                    $("#lbl-api-login").addClass("label-success");
+                }
+                else {
+                    $("#lbl-api-login").addClass("label-danger");
+                }
+            })
+
+
+            // $("#lbl-api-login").removeClass("label-default");
             $("#lbl-api-graph").removeClass("label-default");
             $("#lbl-api-notifications").removeClass("label-default");
 
-            $("#lbl-api-login").addClass("label-success");
+            // $("#lbl-api-login").addClass("label-success");
             $("#lbl-api-graph").addClass("label-success");
             $("#lbl-api-notifications").addClass("label-success");
         })
