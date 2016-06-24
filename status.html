@@ -28,25 +28,22 @@
                     });
             }
 
-            getApiStatus("https://twu-api.herokuapp.com/login/api/v1/status", function(status){
-                $("#lbl-api-login").removeClass("label-default");
+            function updateStatusLabel(statusUrl, outputId){
+                getApiStatus("https://twu-api.herokuapp.com/" + statusUrl, function(status){
+                    $(outputId).removeClass("label-default");
 
-                if (status){
-                    $("#lbl-api-login").addClass("label-success");
-                }
-                else {
-                    $("#lbl-api-login").addClass("label-danger");
-                }
-            })
+                    if (status){
+                        $(outputId).addClass("label-success");
+                    }
+                    else {
+                        $(outputId).addClass("label-danger");
+                    }
+                });
+            }
 
-
-            // $("#lbl-api-login").removeClass("label-default");
-            $("#lbl-api-graph").removeClass("label-default");
-            $("#lbl-api-notifications").removeClass("label-default");
-
-            // $("#lbl-api-login").addClass("label-success");
-            $("#lbl-api-graph").addClass("label-success");
-            $("#lbl-api-notifications").addClass("label-success");
+            updateStatusLabel("login/api/v1/status", "#lbl-api-login");
+            updateStatusLabel("login/graph/v1/status", "#lbl-api-graph");
+            updateStatusLabel("login/notifications/v1/status", "#lbl-api-notifications");
         })
     </script>
 </body>
