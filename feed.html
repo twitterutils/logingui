@@ -6,6 +6,12 @@
 </head>
 <body>
     <div class="container">
+        <h2>
+            <span id="feed-loading">Loading Feed...</span>
+            <span id="feed-error" style="display: none;"></span>
+        </h2>
+        <ul id="feed-container">
+        </ul>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
@@ -42,13 +48,26 @@
                 return;
             }
 
+            function renderFeed(items){
+                items.forEach(function(i){
+                    $("#feed-container").append(
+                        $("<li>").append(
+                            i.url
+                        )
+                    );
+                });
+            }
+
             downloadUserFeed(username, function (err, feed) {
+                $("#feed-loading").hide();
+
                 if (err){
-                    $(".container").text(err);
+                    $("#feed-error").text(err);
+                    $("#feed-error").show();
                     return;
                 }
 
-                $(".container").text("feed read");
+                renderFeed(feed);
             });
         })
     </script>
