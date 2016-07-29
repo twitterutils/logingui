@@ -23,21 +23,33 @@
                 }
             }
 
-            var username = getQueryStringParams("user") || null;
+            function downloadUserFeed(username, callback){
+                var url = "https://twu-api.herokuapp.com/public/api/v1/feed/" + username;
+                $.getJSON(url)
+                    .done(function(json){
+                        console.log(json);
+                        callback(null, json);
+                    })
+                    .fail(function(err){
+                        console.error(err);
+                        callback(err);
+                    });
+            }
 
+            var username = getQueryStringParams("user") || null;
             if (!username){
                 window.location.href = "/";
                 return;
             }
 
-            var url = "https://twu-api.herokuapp.com/public/api/v1/feed/" + username;
-            $.getJSON(url)
-                .done(function(json){
-                    console.log(json);
-                })
-                .fail(function(err){
-                    console.log(err);
-                });
+            downloadUserFeed(username, function (err, feed) {
+                if (err){
+                    $(".container").text(err);
+                    return;
+                }
+
+                $(".container").text("feed read");
+            });
         })
     </script>
 </body>
