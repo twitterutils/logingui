@@ -52,7 +52,9 @@
                 items.forEach(function(i){
                     $("#feed-container").append(
                         $("<li>").append(
-                            i.url
+                            $("<a>").attr("href", i.url).append(
+                                i.userName
+                            )
                         )
                     );
                 });
