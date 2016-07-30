@@ -56,10 +56,15 @@
         render: function(){
             return (
                 <div>
-                    <span class="feed-item-type">Unfollow</span>
-                    <a href={this.props.item.details.url}>
-                        @{this.props.item.details.userName}
-                    </a>
+                    <p>
+                        <span class="feed-item-type">Unfollow</span>
+                        <a href={this.props.item.details.url}>
+                            @{this.props.item.details.userName}
+                        </a>
+                    </p>
+                    <p>
+                        {this.props.item.creation_time_str}
+                    </p>
                 </div>
             )
         }
