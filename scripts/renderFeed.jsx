@@ -4,7 +4,7 @@
             return (
                 <ul>
                     {(this.props.items || []).map(function (i){
-                        return <SingleFeedItem key={i} item={i} />;
+                        return <SingleFeedItem key={i.id} item={i} />;
                     })}
                 </ul>
             )
@@ -15,7 +15,7 @@
         render: function(){
             return (
                 <li>
-                    {this.props.item}
+                    {this.props.item.id}
                 </li>
             )
         }
@@ -47,6 +47,27 @@
                 error: null,
                 items: []
             };
+        },
+        componentDidMount: function(){
+            var username = "camilin87"
+            var url = "https://twu-api.herokuapp.com/public/api/v1/feed/" + username;
+            $.getJSON(url)
+                .done(function(json){
+                    console.log(json);
+                    this.setState({
+                        loading: false,
+                        error: null,
+                        items: json || []
+                    });
+                }.bind(this))
+                .fail(function(err){
+                    console.error(err);
+                    this.setState({
+                        loading: false,
+                        error: err,
+                        items: []
+                    });
+                }.bind(this));
         },
         render: function(){
             if (this.state.loading){
