@@ -34,7 +34,7 @@
             return (
                 <div>
                     <h2>Error Loading Feed</h2>
-                    <p>{this.props.error}</p>
+                    <p>{(this.props.error || {}).statusText || ""}</p>
                 </div>
             )
         }
