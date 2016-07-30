@@ -18,11 +18,18 @@
             }
 
             return (
-                <ul>
-                    {items.map(function (i){
-                        return <SingleFeedItem key={i.id} item={i} />;
-                    })}
-                </ul>
+                <div>
+                    <h2>
+                        <a href={items[0].url}>
+                            @{items[0].userName}
+                        </a> Feed
+                    </h2>
+                    <ul>
+                        {items.map(function (i){
+                            return <SingleFeedItem key={i.id} item={i} />;
+                        })}
+                    </ul>
+                </div>
             )
         }
     });
