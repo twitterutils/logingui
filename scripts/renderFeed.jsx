@@ -36,10 +36,31 @@
 
     var SingleFeedItem = React.createClass({
         render: function(){
+            if (this.props.item.type === "unfollow"){
+                return (
+                    <li>
+                        <UnfollowFeedItem item={this.props.item}/>
+                    </li>
+                )
+            }
+
             return (
                 <li>
                     {this.props.item.id}
                 </li>
+            )
+        }
+    });
+
+    var UnfollowFeedItem = React.createClass({
+        render: function(){
+            return (
+                <div>
+                    <span class="feed-item-type">Unfollow</span>
+                    <a href={this.props.item.details.url}>
+                        @{this.props.item.details.userName}
+                    </a>
+                </div>
             )
         }
     });
