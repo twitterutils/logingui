@@ -5,73 +5,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <h2>
-            <span id="feed-loading">Loading Feed...</span>
-            <span id="feed-error" style="display: none;"></span>
-        </h2>
-        <ul id="feed-container">
-        </ul>
+    <div class="container" id ="feed-container">
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            function getQueryStringParams(sParam){
-                var sPageURL = window.location.search.substring(1);
-                var sURLVariables = sPageURL.split('&');
-
-                for (var i = 0; i < sURLVariables.length; i++){
-                    var sParameterName = sURLVariables[i].split('=');
-                    if (sParameterName[0] == sParam){
-                        return sParameterName[1];
-                    }
-                }
-            }
-
-            function downloadUserFeed(username, callback){
-                var url = "https://twu-api.herokuapp.com/public/api/v1/feed/" + username;
-                $.getJSON(url)
-                    .done(function(json){
-                        console.log(json);
-                        callback(null, json);
-                    })
-                    .fail(function(err){
-                        console.error(err);
-                        callback(err);
-                    });
-            }
-
-            var username = getQueryStringParams("user") || null;
-            if (!username){
-                window.location.href = "/";
-                return;
-            }
-
-            function renderFeed(items){
-                items.forEach(function(i){
-                    $("#feed-container").append(
-                        $("<li>").append(
-                            $("<a>").attr("href", i.url).append(
-                                i.userName
-                            )
-                        )
-                    );
-                });
-            }
-
-            downloadUserFeed(username, function (err, feed) {
-                $("#feed-loading").hide();
-
-                if (err){
-                    $("#feed-error").text(err);
-                    $("#feed-error").show();
-                    return;
-                }
-
-                renderFeed(feed);
-            });
-        })
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="scripts/renderFeed.jsx" type="text/babel"></script>
 </body>
 </html>
