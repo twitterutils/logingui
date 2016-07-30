@@ -41,13 +41,28 @@
     });
 
     var FeedContainer = React.createClass({
+        getInitialState: function(){
+            return {
+                loading: true,
+                error: null,
+                items: []
+            };
+        },
         render: function(){
-            return (
-                <div>
+            if (this.state.loading){
+                return (
                     <Loading />
-                    <FeedError error="something went wrong" />
-                    <FeedItems items={[1, 3, 4, 5]}/>
-                </div>
+                )
+            }
+
+            if (this.state.error){
+                return (
+                    <FeedError error={this.state.error} />
+                )
+            }
+
+            return (
+                <FeedItems items={this.state.items}/>
             )
         }
     });
