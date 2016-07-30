@@ -1,9 +1,25 @@
 (function(){
-    var FeedItems = React.createClass({
+    var EmptyFeed = React.createClass({
         render: function(){
             return (
+                <h2>Empty Feed</h2>
+            )
+        }
+    });
+
+    var FeedItems = React.createClass({
+        render: function(){
+            var items = this.props.items || [];
+
+            if (items.length === 0){
+                return (
+                    <EmptyFeed />
+                )
+            }
+
+            return (
                 <ul>
-                    {(this.props.items || []).map(function (i){
+                    {items.map(function (i){
                         return <SingleFeedItem key={i.id} item={i} />;
                     })}
                 </ul>
