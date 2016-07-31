@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
     <title>Twitter Utils</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style type="text/css">
@@ -14,30 +15,22 @@
     </style>
 </head>
 <body>
+
     <div class="container">
         <div class="page-header">
             <h1><a id="linkTitle" href="/">Twitter Utils</a></h1>
         </div>
 
-        <div id="divLogin" style="display: none;" class="jumbotron">
+        <div id="divLogin" class="jumbotron">
             <h1>Automate Twitter</h1>
             <p class="lead">
                 Signup to automate your Twitter workflow.
             </p>
-            <p>
-                <a id="btnLogin" class="btn btn-lg btn-success" role="button" href="#">Signup Today</a>
-            </p>
+
+            <div id="loginContainer"></div>
         </div>
-        <div id="divResultOk" style="display: none;" class="jumbotron success-container">
-            <h2>Login Successful</h2>
-            <p class="lead">
-                Twitter User Id: <span id="txtUserDetails"></span>
-            </p>
-        </div>
-        <div id="divResultFailed" style="display: none;" class="jumbotron error-container">
-            <h2 class="bg-danger">Login Failed</h2>
-            <p class="lead" id="txtErrorDetails"></p>
-        </div>
+
+        <div id="loginResultContainer"></div>
 
         <footer class="footer">
           <div class="container">
@@ -47,55 +40,10 @@
         </footer>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            function setupLogin(useDevUrl){
-                var baseUrl = "https://twu-api.herokuapp.com";
-                if (useDevUrl){
-                    baseUrl = "http://localhost:8080";
-                }
-
-                var loginApiUrl = baseUrl + "/login/api/v1/login";
-                var url = loginApiUrl + "?callback=" + $(location).attr('href');
-
-                $("#btnLogin").attr("href", url);
-                $("#divLogin").show();
-            }
-            function getQueryStringParams(sParam){
-                var sPageURL = window.location.search.substring(1);
-                var sURLVariables = sPageURL.split('&');
-
-                for (var i = 0; i < sURLVariables.length; i++){
-                    var sParameterName = sURLVariables[i].split('=');
-                    if (sParameterName[0] == sParam){
-                        return sParameterName[1];
-                    }
-                }
-            }
-
-            var isDev = getQueryStringParams("dev") || null;
-            var userId = getQueryStringParams("user_id") || null;
-            var error = getQueryStringParams("error") || null;
-
-            if (isDev === "true"){
-                $("#linkTitle").attr("href", "/?dev=true");
-            }
-
-            if (!error && !userId){
-                setupLogin(isDev === "true");
-                return;
-            }
-
-            if (error){
-                $("#txtErrorDetails").text(error);
-                $("#divResultFailed").show();
-                return;
-            }
-
-            $("#txtUserDetails").text(userId);
-            $("#divResultOk").show();
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="scripts/renderLogin.jsx" type="text/babel"></script>
 </body>
 </html>
