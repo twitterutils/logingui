@@ -56,15 +56,13 @@
         render: function(){
             return (
                 <div>
-                    <p>
-                        <span class="feed-item-type">Unfollow</span>
-                        <a href={this.props.item.details.url}>
-                            @{this.props.item.details.userName}
-                        </a>
-                    </p>
-                    <p>
+                    <span>Unfollow</span>
+                    <sub>
                         {this.props.item.creation_time_str}
-                    </p>
+                    </sub>
+                    <a href={this.props.item.details.url}>
+                        @{this.props.item.details.userName}
+                    </a>
                 </div>
             )
         }
@@ -73,7 +71,7 @@
     var Loading = React.createClass({
         render: function(){
             return (
-                <div id="feed-loading">Loading Feed...</div>
+                <div>Loading Feed...</div>
             )
         }
     });
