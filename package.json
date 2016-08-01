@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "twitter utils login gui ",
   "main": "index.html",
+  "private": true,
   "scripts": {
     "prestart": "npm install",
-    "start": "http-server -p 3000"
+    "start": "http-server -p 3000",
+    "test": "echo tests"
   },
   "repository": {
     "type": "git",
