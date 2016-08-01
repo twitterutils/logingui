@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- stable
+
+script: bash ./deploy.sh
+env:
+  global:
+  - ENCRYPTION_LABEL: "96ec9cb020a1"
+  - COMMIT_AUTHOR_EMAIL: "camilin87@users.noreply.github.com "
