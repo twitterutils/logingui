@@ -5,5 +5,5 @@ node_js:
 script: bash ./deploy.sh
 env:
   global:
-  - ENCRYPTION_LABEL: "96ec9cb020a1"
+  - ENCRYPTION_LABEL: "15fdbe2ce433"
   - COMMIT_AUTHOR_EMAIL: "camilin87@users.noreply.github.com "
