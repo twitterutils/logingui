@@ -24,7 +24,7 @@ rm -rf **/* || exit 0
 # shellcheck disable=SC2164
 cd "$repo_path"
 
-bash ./compile.sh "$repo_temp"
+bash ./compile.sh "$repo_temp" 1>&2
 
 
 # return to the compilation output
