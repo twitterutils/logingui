@@ -9,4 +9,4 @@ env:
     - BRANCH_TO_MERGE_INTO: "gh-pages"
 
 after_success:
-  bash ./deploy.sh
+  - "bash deploy.sh"
