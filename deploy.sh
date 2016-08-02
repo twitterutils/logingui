@@ -3,8 +3,8 @@
 : "${BRANCH_TO_MERGE_INTO?}"
 : "${GITHUB_SECRET_TOKEN?}" "${GITHUB_REPO?}"
 
-export GIT_COMMITTER_EMAIL='travis@travis'
-export GIT_COMMITTER_NAME='Travis CI'
+git config --global user.email "travis@travis-ci.org"
+git config --global user.name "Travis CI"
 
 repo_path=$(pwd)
 # Since Travis does a partial checkout, we need to get the whole thing
