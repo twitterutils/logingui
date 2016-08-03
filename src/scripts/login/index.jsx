@@ -1,12 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import LoginButton from './components/LoginButton.jsx'
-import LoginResult from './components/LoginResult.jsx'
+import LoginContainer from './components/LoginContainer.jsx'
 
 render(
-    <div>
-        <LoginButton />
-        <LoginResult />
-    </div>,
+    <LoginContainer />,
     document.getElementById("loginContainer")
 );
