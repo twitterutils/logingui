@@ -4,10 +4,9 @@ import LoginButton from './components/LoginButton.jsx'
 import LoginResult from './components/LoginResult.jsx'
 
 render(
-    <LoginButton />,
+    <div>
+        <LoginButton />
+        <LoginResult />
+    </div>,
     document.getElementById("loginContainer")
-);
-render(
-    <LoginResult />,
-    document.getElementById("loginResultContainer")
 );
