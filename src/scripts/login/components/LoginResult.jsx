@@ -1,35 +1,21 @@
 import React from 'react';
 import LoginError from './LoginError.jsx'
 import LoginSuccess from './LoginSuccess.jsx'
-import {readUrlParams} from '../lib/loginUrlUtils.js'
 
 class LoginResult extends React.Component {
-    constructor(props) {
-        super(props);
-
-        var urlParams = readUrlParams();
-
-        this.state = {
-            shouldDisplayError: urlParams.error,
-            errorDetails: urlParams.error,
-            shouldDisplaySuccess: urlParams.userId,
-            userId: urlParams.userId
-        };
-    }
-
     render() {
-        if (this.state.shouldDisplayError){
+        if (this.props.errorDetails){
             return (
                 <div>
-                    <LoginError error={this.state.errorDetails}/>
+                    <LoginError error={this.props.errorDetails}/>
                 </div>
             );
         }
 
-        if (this.state.shouldDisplaySuccess){
+        if (this.props.userDetails.userId){
             return (
                 <div>
-                    <LoginSuccess userId={this.state.userId}/>
+                    <LoginSuccess userId={this.props.userDetails.userId}/>
                 </div>
             );
         }
