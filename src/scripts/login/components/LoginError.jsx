@@ -1,5 +1,4 @@
 import React from 'react';
-import {readUrlParams} from '../lib/loginUrlUtils.js'
 
 class LoginError extends React.Component {
     render(){

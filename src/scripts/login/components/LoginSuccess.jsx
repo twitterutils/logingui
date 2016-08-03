@@ -1,5 +1,4 @@
 import React from 'react';
-import {readUrlParams} from '../lib/loginUrlUtils.js'
 
 class LoginSuccess extends React.Component {
     render(){
