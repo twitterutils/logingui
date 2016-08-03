@@ -8,7 +8,6 @@
     "prestart": "npm install && npm run bundle",
     "start": "http-server -p 3000",
     "test": "echo tests",
-
     "bundle": "./node_modules/.bin/webpack -d"
   },
   "repository": {
@@ -28,6 +27,9 @@
     "http-server": "^0.9.0"
   },
   "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
     "webpack": "^1.13.1"
   }
 }

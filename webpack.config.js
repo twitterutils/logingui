@@ -9,6 +9,15 @@ var config = {
   output: {
     path: BUILD_DIR,
     filename: '/scripts/bundle.js'
+  },
+  module : {
+    loaders : [
+      {
+        test : /\.jsx?/,
+        include : APP_DIR,
+        loader : 'babel'
+      }
+    ]
   }
 };
 
