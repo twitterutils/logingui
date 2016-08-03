@@ -5,8 +5,8 @@
   "main": "index.html",
   "private": true,
   "scripts": {
-    "prestart": "npm install && npm run bundle",
-    "start": "http-server -p 3000",
+    "prestart": "npm install",
+    "start": "./node_modules/.bin/webpack -d --watch & http-server -p 3000",
     "test": "echo tests",
     "bundle": "./node_modules/.bin/webpack -d"
   },
