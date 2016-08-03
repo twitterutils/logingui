@@ -4,7 +4,7 @@ class AwesomeComponent extends React.Component {
   render() {
     return (
       <div>
-        Likes!!
+        Likes
       </div>
     );
   }
