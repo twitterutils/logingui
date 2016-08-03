@@ -8,7 +8,7 @@
     "prestart": "npm install",
     "start": "./node_modules/.bin/webpack -d --watch & http-server -p 3000",
     "test": "echo tests",
-    "bundle": "./node_modules/.bin/webpack -d"
+    "bundle": "./node_modules/.bin/webpack -p"
   },
   "repository": {
     "type": "git",
