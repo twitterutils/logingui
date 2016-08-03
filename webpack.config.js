@@ -6,7 +6,8 @@ var APP_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
   entry: {
-    testBundle: APP_DIR + '/scripts/testBundle/index.jsx'
+    testBundle: path.join(APP_DIR, '/scripts/testBundle/index.jsx'),
+    feed: path.join(APP_DIR, '/scripts/feed/index.jsx')
   },
   output: {
     path:  path.join(BUILD_DIR, "scripts/"),
