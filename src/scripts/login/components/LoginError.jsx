@@ -2,18 +2,11 @@ import React from 'react';
 import {readUrlParams} from '../lib/loginUrlUtils.js'
 
 class LoginError extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.state = {
-            error: readUrlParams().error
-        };
-    }
     render(){
         return (
             <div className="jumbotron error-container">
                 <h2 className="bg-danger">Login Failed</h2>
-                <p className="lead">{this.state.error}</p>
+                <p className="lead">{this.props.error}</p>
             </div>
         );
     }
