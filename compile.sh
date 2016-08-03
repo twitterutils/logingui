@@ -7,9 +7,6 @@ echo "building from '$source_path' to '$out_path'"
 
 npm run bundle
 
-mkdir -p node_modules
-cp -R node_modules $out_path/
-
 mkdir -p build
 cp -R build $out_path/
 
