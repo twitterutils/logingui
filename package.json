@@ -7,7 +7,9 @@
   "scripts": {
     "prestart": "npm install",
     "start": "http-server -p 3000",
-    "test": "echo tests"
+    "test": "echo tests",
+
+    "bundle": "./node_modules/.bin/webpack -d"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
   "homepage": "https://github.com/twitterutils/logingui#readme",
   "devDependencies": {
     "http-server": "^0.9.0"
+  },
+  "dependencies": {
+    "webpack": "^1.13.1"
   }
 }
