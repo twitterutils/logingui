@@ -1,5 +1,5 @@
 import React from 'react';
-import {getQueryStringParams} from '../../lib/urlUtils.js'
+import {getQueryStringParams, getBaseUrl} from '../../lib/urlUtils.js'
 import LoginButton from './LoginButton.jsx'
 import LoginResult from './LoginResult.jsx'
 
@@ -17,17 +17,12 @@ class LoginContainer extends React.Component {
 
         var urlParams = this.readUrlParams();
 
-        var baseUrl = "https://twu-api.herokuapp.com";
-        if (urlParams.isDev === "true"){
-            baseUrl = "http://localhost:8080";
-        }
-
         this.state = {
             errorDetails: urlParams.error,
             userDetails: {
                 userId: urlParams.userId
             },
-            baseUrl: baseUrl
+            baseUrl: getBaseUrl()
         };
     }
 

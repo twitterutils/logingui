@@ -10,4 +10,15 @@ export function getQueryStringParams(sParam) {
     }
 }
 
-export {getQueryStringParams};
+export function getBaseUrl(){
+    var isDev = getQueryStringParams("dev") || null;
+
+    var baseUrl = "https://twu-api.herokuapp.com";
+    if (isDev === "true"){
+        baseUrl = "http://localhost:8080";
+    }
+
+    return baseUrl;
+}
+
+export {getQueryStringParams, getBaseUrl};
