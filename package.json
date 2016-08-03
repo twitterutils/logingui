@@ -5,7 +5,7 @@
   "main": "index.html",
   "private": true,
   "scripts": {
-    "prestart": "npm install",
+    "prestart": "npm install && npm run bundle",
     "start": "http-server -p 3000",
     "test": "echo tests",
 
