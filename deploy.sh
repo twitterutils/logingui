@@ -33,7 +33,7 @@ cd "$repo_temp"
 
 
 printf 'Committing %s\n' "$TRAVIS_COMMIT" >&2
-git add .
+git add -A
 git commit -m "Travis Deploy: ${TRAVIS_COMMIT}"
 
 
