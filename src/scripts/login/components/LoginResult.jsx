@@ -12,7 +12,8 @@ class LoginResult extends React.Component {
         this.state = {
             shouldDisplayError: urlParams.error,
             errorDetails: urlParams.error,
-            shouldDisplaySuccess: urlParams.userId
+            shouldDisplaySuccess: urlParams.userId,
+            userId: urlParams.userId
         };
     }
 
@@ -28,7 +29,7 @@ class LoginResult extends React.Component {
         if (this.state.shouldDisplaySuccess){
             return (
                 <div>
-                    <LoginSuccess />
+                    <LoginSuccess userId={this.state.userId}/>
                 </div>
             );
         }
