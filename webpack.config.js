@@ -6,6 +6,7 @@ var APP_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
   entry: {
+    login: path.join(APP_DIR, '/scripts/login/index.jsx'),
     feed: path.join(APP_DIR, '/scripts/feed/index.jsx')
   },
   output: {
