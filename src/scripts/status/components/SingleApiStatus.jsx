@@ -11,9 +11,38 @@ class SingleApiStatus extends React.Component {
         this.state = {
             loading: true,
             error: false,
-            success: false,
-            url: getBaseUrl() + props.apiUrl
+            success: false
         };
+    }
+
+    componentDidMount(){
+        var fullUrl = getBaseUrl() + this.props.apiUrl;
+        $.getJSON(fullUrl)
+            .done(function(json){
+                console.log(json);
+                if (json.status === "ok"){
+                    this.setState({
+                        loading: false,
+                        error: false,
+                        success: true
+                    });
+                } 
+                else {
+                    this.setState({
+                        loading: false,
+                        error: true,
+                        success: false
+                    });
+                }
+            }.bind(this))
+            .fail(function(err){
+                console.log(err);
+                this.setState({
+                    loading: false,
+                    error: true,
+                    success: false
+                });
+            }.bind(this));
     }
 
     render() {
