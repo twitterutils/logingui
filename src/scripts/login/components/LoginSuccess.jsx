@@ -6,7 +6,7 @@ class LoginSuccess extends React.Component {
             <div className="jumbotron success-container">
                 <h2>Login Successful</h2>
                 <p className="lead">
-                    Twitter User Id: <span>{this.props.userId}</span>
+                    Twitter User Id: <span>{this.props.userDetails.userId}</span>
                 </p>
             </div>
         );

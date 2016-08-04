@@ -15,7 +15,7 @@ class LoginResult extends React.Component {
         if (this.props.userDetails.userId){
             return (
                 <div>
-                    <LoginSuccess userId={this.props.userDetails.userId}/>
+                    <LoginSuccess userDetails={this.props.userDetails}/>
                 </div>
             );
         }
