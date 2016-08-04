@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from './Loading.jsx'
 import FeedError from './FeedError.jsx'
 import FeedItems from './FeedItems.jsx'
-import {getQueryStringParams} from '../../lib/urlUtils.js'
+import {getQueryStringParams, getBaseUrl} from '../../lib/urlUtils.js'
 
 class FeedContainer extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class FeedContainer extends React.Component {
             return;
         }
 
-        var url = "https://twu-api.herokuapp.com/public/api/v1/feed/" + username;
+        var url = `${getBaseUrl()}/public/api/v1/feed/${username}`;
         $.getJSON(url)
             .done(function(json){
                 console.log(json);
