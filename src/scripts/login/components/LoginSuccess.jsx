@@ -1,4 +1,5 @@
 import React from 'react';
+import FeedBox from '../../feed/components/FeedBox.jsx'
 
 class LoginSuccess extends React.Component {
     render(){
@@ -6,9 +7,7 @@ class LoginSuccess extends React.Component {
             <div>
                 <h2>Login Successful</h2>
 
-                <a href={"feed.html?user=" + this.props.userDetails.userName}>
-                    @{this.props.userDetails.userName} Feed
-                </a>
+                <FeedBox userDetails={this.props.userDetails}/>
             </div>
         );
     }
