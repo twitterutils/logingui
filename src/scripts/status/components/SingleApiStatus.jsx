@@ -1,15 +1,38 @@
 import React from 'react';
 import ErrorStatus from './ErrorStatus.jsx';
 import SuccessStatus from './SuccessStatus.jsx';
+import LoadingStatus from './LoadingStatus.jsx';
 
 class SingleApiStatus extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            loading: true,
+            error: false,
+            success: false
+        };
+    }
+
     render() {
-        return (
-            <div>
-                <SuccessStatus label={this.props.apiName} />
+        if (this.state.loading){
+            return (
+                <LoadingStatus label={this.props.apiName} />
+            )
+        }
+
+        if (this.state.error){
+            return (
                 <ErrorStatus label={this.props.apiName} />
-            </div>
-        )
+            )
+        }
+
+        if (this.state.success){
+            return (
+                <SuccessStatus label={this.props.apiName} />
+            )
+        }
+
+        return (null);
     }
 }
 
