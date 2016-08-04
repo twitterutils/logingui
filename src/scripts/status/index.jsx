@@ -1,9 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
+import StatusContainer from './components/StatusContainer.jsx'
 
 render(
-    <div>
-        react status
-    </div>,
+    <StatusContainer />,
     document.getElementById("status-container")
 );
