@@ -1,5 +1,5 @@
 import React from 'react';
-import {getBaseUrl} from '../../lib/urlUtils.js'
+import {getApiBaseUrl} from '../../lib/urlUtils.js'
 import ErrorStatus from './ErrorStatus.jsx';
 import SuccessStatus from './SuccessStatus.jsx';
 import LoadingStatus from './LoadingStatus.jsx';
@@ -16,7 +16,7 @@ class SingleApiStatus extends React.Component {
     }
 
     componentDidMount(){
-        var fullUrl = getBaseUrl() + this.props.apiUrl;
+        var fullUrl = getApiBaseUrl() + this.props.apiUrl;
         $.getJSON(fullUrl)
             .done(function(json){
                 console.log(json);

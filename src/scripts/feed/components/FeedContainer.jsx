@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from './Loading.jsx'
 import FeedError from './FeedError.jsx'
 import FeedItems from './FeedItems.jsx'
-import {getQueryStringParams, getBaseUrl} from '../../lib/urlUtils.js'
+import {getQueryStringParams, getApiBaseUrl} from '../../lib/urlUtils.js'
 
 class FeedContainer extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class FeedContainer extends React.Component {
             return;
         }
 
-        var url = `${getBaseUrl()}/public/api/v1/feed/${username}`;
+        var url = `${getApiBaseUrl()}/public/api/v1/feed/${username}`;
         $.getJSON(url)
             .done(function(json){
                 console.log(json);

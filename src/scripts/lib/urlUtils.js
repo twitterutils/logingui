@@ -10,7 +10,7 @@ export function getQueryStringParams(sParam) {
     }
 }
 
-export function getBaseUrl(){
+export function getApiBaseUrl(){
     var isDev = getQueryStringParams("dev") || null;
 
     var baseUrl = "https://twu-api.herokuapp.com";
@@ -21,4 +21,4 @@ export function getBaseUrl(){
     return baseUrl;
 }
 
-export {getQueryStringParams, getBaseUrl};
+export {getQueryStringParams, getApiBaseUrl};
