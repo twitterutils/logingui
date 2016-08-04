@@ -20,8 +20,7 @@ git checkout "$BRANCH_TO_MERGE_INTO"
 # Clean out existing contents
 printf 'Cleaning up evertything in temp\n' >&2
 rm -rf **/* || exit 0
-git add -A
-git commit -m "Travis Cleanup: ${TRAVIS_COMMIT}"
+rm -rf ./* || exit 0
 
 # go back to the original repo path to compile
 # shellcheck disable=SC2164
