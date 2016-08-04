@@ -3,11 +3,12 @@ import React from 'react';
 class LoginSuccess extends React.Component {
     render(){
         return (
-            <div className="jumbotron success-container">
+            <div>
                 <h2>Login Successful</h2>
-                <p className="lead">
-                    Twitter User Id: <span>{this.props.userDetails.userId}</span>
-                </p>
+
+                <a href={"feed.html?user=" + this.props.userDetails.userName}>
+                    @{this.props.userDetails.userName} Feed
+                </a>
             </div>
         );
     }
