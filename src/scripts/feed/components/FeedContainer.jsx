@@ -1,63 +1,34 @@
 import React from 'react';
-import Loading from './Loading.jsx'
-import FeedError from './FeedError.jsx'
-import FeedItems from './FeedItems.jsx'
+import FeedBox from './FeedBox.jsx'
 import {getQueryStringParams, getApiBaseUrl} from '../../lib/urlUtils.js'
 
 class FeedContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true,
-            error: null,
-            items: []
+            userName: getQueryStringParams("user")
         };
     }
 
     componentDidMount (){
-        var username = getQueryStringParams("user");
-
-        if (!username){
+        if (!this.state.userName){
             window.location.href = "/";
             return;
         }
-
-        var url = `${getApiBaseUrl()}/public/api/v1/feed/${username}`;
-        $.getJSON(url)
-            .done(function(json){
-                console.log(json);
-                this.setState({
-                    loading: false,
-                    error: null,
-                    items: json || []
-                });
-            }.bind(this))
-            .fail(function(err){
-                console.error(err);
-                this.setState({
-                    loading: false,
-                    error: err,
-                    items: []
-                });
-            }.bind(this));
     }
 
     render (){
-        if (this.state.loading){
+        var userDetails = {
+            userName: this.state.userName
+        };
+
+        if (this.state.userName){
             return (
-                <Loading />
+                <FeedBox userDetails={userDetails}/>
             )
         }
 
-        if (this.state.error){
-            return (
-                <FeedError error={this.state.error} />
-            )
-        }
-
-        return (
-            <FeedItems items={this.state.items}/>
-        )
+        return (null);
     }
 }
 
