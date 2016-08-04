@@ -1,4 +1,5 @@
 import React from 'react';
+import {getBaseUrl} from '../../lib/urlUtils.js'
 import ErrorStatus from './ErrorStatus.jsx';
 import SuccessStatus from './SuccessStatus.jsx';
 import LoadingStatus from './LoadingStatus.jsx';
@@ -6,10 +7,12 @@ import LoadingStatus from './LoadingStatus.jsx';
 class SingleApiStatus extends React.Component {
     constructor(props){
         super(props);
+
         this.state = {
             loading: true,
             error: false,
-            success: false
+            success: false,
+            url: getBaseUrl() + props.apiUrl
         };
     }
 
