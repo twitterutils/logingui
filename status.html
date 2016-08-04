@@ -7,53 +7,11 @@
 <body>
     <div class="container">
         <h1>Api Status</h1>
-
-        <h2><span id="lbl-api-login" class="label label-default">Login Api V1</span></h2>
-        <h2><span id="lbl-api-graph" class="label label-default">Graph Api V1</span></h2>
-        <h2><span id="lbl-api-notifications" class="label label-default">Notifications Api V1</span></h2>
-        <h2><span id="lbl-api-feed" class="label label-default">Feed Api V1</span></h2>
-        <h2><span id="lbl-api-usernames" class="label label-default">Usernames Api V1</span></h2>
-        <h2><span id="lbl-api-public" class="label label-default">Public Api V1</span></h2>
-
-        <dir id="status-container"></dir>
+        <dir id="status-container">
+        </dir>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script src="build/scripts/status.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            function getApiStatus(fullUrl, callback){
-                $.getJSON(fullUrl)
-                    .done(function(json){
-                        console.log(json);
-                        callback(json.status === "ok" ? true : false);
-                    })
-                    .fail(function(err){
-                        console.log(err);
-                        callback(false);
-                    });
-            }
-
-            function updateStatusLabel(statusUrl, outputId){
-                getApiStatus("https://twu-api.herokuapp.com/" + statusUrl, function(status){
-                    $(outputId).removeClass("label-default");
-
-                    if (status){
-                        $(outputId).addClass("label-success");
-                    }
-                    else {
-                        $(outputId).addClass("label-danger");
-                    }
-                });
-            }
-
-            updateStatusLabel("login/api/v1/status", "#lbl-api-login");
-            updateStatusLabel("graph/api/v1/status", "#lbl-api-graph");
-            updateStatusLabel("notifications/api/v1/status", "#lbl-api-notifications");
-            updateStatusLabel("feed/api/v1/status", "#lbl-api-feed");
-            updateStatusLabel("usernames/api/v1/status", "#lbl-api-usernames");
-            updateStatusLabel("public/api/v1/status", "#lbl-api-public");
-        })
-    </script>
 </body>
 </html>
