@@ -1,11 +1,11 @@
 import React from 'react';
+import {getBaseUrl} from '../../lib/urlUtils.js';
 
 class LoginButton extends React.Component {
     constructor(props) {
         super(props);
 
-        var baseUrl = props.baseUrl;
-        var loginApiUrl = baseUrl + "/login/api/v1/login";
+        var loginApiUrl = getBaseUrl() + "/login/api/v1/login";
 
         this.state = {
             url: loginApiUrl + "?callback=" + window.location.href,

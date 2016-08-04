@@ -1,5 +1,5 @@
 import React from 'react';
-import {getQueryStringParams, getBaseUrl} from '../../lib/urlUtils.js'
+import {getQueryStringParams} from '../../lib/urlUtils.js'
 import LoginButton from './LoginButton.jsx'
 import LoginResult from './LoginResult.jsx'
 
@@ -22,8 +22,7 @@ class LoginContainer extends React.Component {
             userDetails: {
                 userId: urlParams.userId,
                 userName: urlParams.userName,
-            },
-            baseUrl: getBaseUrl()
+            }
         };
     }
 
@@ -32,12 +31,10 @@ class LoginContainer extends React.Component {
             <div>
                 <LoginButton
                     userDetails={this.state.userDetails}
-                    errorDetails={this.state.errorDetails}
-                    baseUrl={this.state.baseUrl} />
+                    errorDetails={this.state.errorDetails} />
                 <LoginResult 
                     userDetails={this.state.userDetails}
-                    errorDetails={this.state.errorDetails}
-                    baseUrl={this.state.baseUrl} />
+                    errorDetails={this.state.errorDetails} />
             </div>
         );
     }
