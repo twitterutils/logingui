@@ -18,12 +18,19 @@ class LoginButton extends React.Component {
         }
 
         return(
-            <a className="btn btn-lg btn-success"
-                role="button"
-                href={this.state.url}>
-                <img src="images/Twitter_Logo_White_On_Image.png" alt="Twitter Logo"/>
-                Sign in with Twitter
-            </a>
+            <div id="divLogin" className="jumbotron">
+                <h1>Automate Twitter</h1>
+                <p className="lead">
+                    Automatically unfollow those that unfollow you
+                </p>
+
+                <a className="btn btn-lg btn-success"
+                    role="button"
+                    href={this.state.url}>
+                    <img src="images/Twitter_Logo_White_On_Image.png" alt="Twitter Logo"/>
+                    Sign in with Twitter
+                </a>
+            </div>
         );
     }
 }
