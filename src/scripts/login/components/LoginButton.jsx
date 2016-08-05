@@ -21,7 +21,8 @@ class LoginButton extends React.Component {
             <a className="btn btn-lg btn-success"
                 role="button"
                 href={this.state.url}>
-                Signup Today
+                <img src="images/Twitter_Logo_White_On_Image.png" alt="Twitter Logo"/>
+                Sign in with Twitter
             </a>
         );
     }
