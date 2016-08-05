@@ -1,11 +1,12 @@
 import React from 'react';
+import LoginSuccessMessage from './LoginSuccessMessage.jsx'
 import FeedBox from '../../feed/components/FeedBox.jsx'
 
 class LoginSuccess extends React.Component {
     render(){
         return (
             <div>
-                <h2>Login Successful</h2>
+                <LoginSuccessMessage />
 
                 <FeedBox userDetails={this.props.userDetails}/>
             </div>
