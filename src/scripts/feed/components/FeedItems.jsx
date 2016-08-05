@@ -19,11 +19,12 @@ class FeedItems extends React.Component {
                         @{items[0].userName}
                     </a> Feed
                 </h2>
-                <ul>
+
+                <div className="list-group">
                     {items.map(function (i){
                         return <SingleFeedItem key={i.id} item={i} />;
                     })}
-                </ul>
+                </div>
             </div>
         )
     }

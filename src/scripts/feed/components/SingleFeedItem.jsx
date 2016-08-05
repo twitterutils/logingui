@@ -5,16 +5,14 @@ class SingleFeedItem extends React.Component {
     render (){
         if (this.props.item.type === "unfollow"){
             return (
-                <li>
-                    <UnfollowFeedItem item={this.props.item}/>
-                </li>
+                <UnfollowFeedItem item={this.props.item}/>
             )
         }
 
         return (
-            <li>
+            <div>
                 {this.props.item.id}
-            </li>
+            </div>
         )
     }
 }

@@ -3,15 +3,15 @@ import React from 'react';
 class UnfollowFeedItem extends React.Component {
     render (){
         return (
-            <div>
-                <span>Unfollow</span>
-                <sub>
+            <a className="list-group-item list-group-item-action"
+                href={this.props.item.details.url}>
+                <h5 className="list-group-item-heading">
+                    Unfollow @{this.props.item.details.userName}
+                </h5>
+                <p className="list-group-item-text">
                     {this.props.item.creation_time_str}
-                </sub>
-                <a href={this.props.item.details.url}>
-                    @{this.props.item.details.userName}
-                </a>
-            </div>
+                </p>
+            </a>
         )
     }
 }
