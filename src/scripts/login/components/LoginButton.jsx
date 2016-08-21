@@ -5,7 +5,7 @@ class LoginButton extends React.Component {
     constructor(props) {
         super(props);
 
-        var loginApiUrl = getApiBaseUrl() + "/login/api/v1/login";
+        var loginApiUrl = getApiBaseUrl() + "/secure/login/api/v1/login";
 
         this.state = {
             url: loginApiUrl + "?callback=" + window.location.href,
