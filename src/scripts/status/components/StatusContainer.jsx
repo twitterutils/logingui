@@ -9,6 +9,7 @@ class StatusContainer extends React.Component {
             endpoints: [
                 {url: "/secure/login/api/v1/status", name: "Login Api V1"},
                 {url: "/secure/graph/api/v1/status", name: "Graph Api V1"},
+                {url: "/secure/schedule/api/v1/status", name: "Schedule Api V1"},
                 {url: "/secure/notifications/api/v1/status", name: "Notifications Api V1"},
                 {url: "/secure/feed/api/v1/status", name: "Feed Api V1"},
                 {url: "/secure/usernames/api/v1/status", name: "Usernames Api V1"},
