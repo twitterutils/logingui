@@ -1,4 +1,4 @@
-export function getQueryStringParams(sParam) {
+function getQueryStringParams(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
 
@@ -10,7 +10,7 @@ export function getQueryStringParams(sParam) {
     }
 }
 
-export function getApiBaseUrl(){
+function getApiBaseUrl(){
     var isDev = getQueryStringParams("dev") || null;
 
     var baseUrl = "https://twu-api.herokuapp.com";
